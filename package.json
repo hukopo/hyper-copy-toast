@@ -1,0 +1,21 @@
+{
+  "name": "hyper-copy-toast",
+  "version": "1.0.0",
+  "description": "Hyper: копирование при выделении + плашка «Скопировано»",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.14.0",
+    "typescript": "^5.6.0"
+  },
+  "keywords": [
+    "hyper",
+    "hyper-plugin",
+    "clipboard",
+    "copy-on-select"
+  ],
+  "license": "MIT",
+  "repository": "github:hukopo/hyper-copy-toast"
+}
