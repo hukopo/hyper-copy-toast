@@ -1,36 +1,44 @@
 # hyper-copy-toast
 
-Плагин для [Hyper](https://hyper.is): **копирует текст сразу при выделении** и показывает внизу терминала плашку **«Скопировано»** — как в Claude Code.
+A [Hyper](https://hyper.is) plugin that **copies text as soon as you select it** and flashes a fuchsia **“Copied”** toast at the bottom of the terminal — just like Claude Code.
 
 ![demo](docs/demo.png)
 
-## Установка
+## Install
 
 ```sh
 git clone https://github.com/hukopo/hyper-copy-toast ~/.hyper_plugins/local/hyper-copy-toast
 cd ~/.hyper_plugins/local/hyper-copy-toast && npm i && npm run build
 ```
 
-В `~/.hyper.js`:
+Add it to `~/.hyper.js`:
 
 ```js
 localPlugins: ['hyper-copy-toast'],
 ```
 
-Затем **полностью перезапустите Hyper (Cmd+Q)** — новое окно или View → Reload новые плагины не подхватывают.
+Then **fully restart Hyper (Cmd+Q)** — a new window or View → Reload won't pick up new plugins.
 
-> Встроенную опцию `copyOnSelect` включать не нужно.
+> No need to enable the built-in `copyOnSelect` option.
 
-## Разработка
+## Development
 
 ```sh
 npm run build   # src/index.ts → dist/index.js
 ```
 
-Исходник — `src/index.ts`: оборачивает компонент `Term`, подписывается на `onSelectionChange` у xterm, пишет выделение в буфер через `electron.clipboard` и на 1,2 с показывает плашку.
+`src/index.ts` wraps Hyper's `Term` component, subscribes to xterm's `onSelectionChange`, writes the selection to the clipboard via `electron.clipboard` and blinks the toast for 600 ms.
 
-Проверено на Hyper 3.4.1, macOS.
+Tested on Hyper 3.4.1, macOS.
 
-## Лицензия
+## License
 
 MIT
+
+---
+
+## 🇷🇺 Кратко
+
+Плагин для Hyper: **копирует текст сразу при выделении** и на мгновение мигает фуксиевой плашкой **«Copied»**.
+
+Установка: склонировать в `~/.hyper_plugins/local/hyper-copy-toast`, выполнить `npm i && npm run build`, добавить `'hyper-copy-toast'` в `localPlugins` в `~/.hyper.js` и **полностью перезапустить Hyper (Cmd+Q)**.
